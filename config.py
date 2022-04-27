@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 
 
-def login_config(filename="login.ini", section="api"):
+def login_config(filename="login.ini", section="login"):
     parser = ConfigParser()
     parser.read(filename)
     login = {}
