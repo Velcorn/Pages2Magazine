@@ -31,9 +31,9 @@ def main():
     login = 'https://www.tourenfahrer.de/login/?tx_xtcconnect_login%5BredirectUrl%5D=https%3A%2F%2Fwww.tourenfahrer.de%2F'
     driver.get(login)
     email_field = driver.find_element(By.ID, 'login-username')
-    email_field.send_keys(email)  # input('E-Mail: ')
+    email_field.send_keys(email)
     pw_field = driver.find_element(By.ID, 'login-password')
-    pw_field.send_keys(password)  # input('Password: ')
+    pw_field.send_keys(password)
     pw_field.submit()
 
     # For all years from archive
@@ -52,7 +52,7 @@ def main():
         issues = sorted(list(set(issues)))
         # For all parts from an issue
         for issue in issues:
-            print(f"Getting all parts from issue {issue} and downloading...")
+            print(f"Getting all parts from year {year} issue {issue} and downloading...")
             url = f'https://www.tourenfahrer.de/motorradnews/archiv/motorradfahrer-archiv/archiv/ausgabe/{year}/{issue}/'
             driver.get(url)
             html = driver.page_source
