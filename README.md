@@ -5,10 +5,10 @@ otherwise, see [Link](https://pip.pypa.io/en/stable/installation/))
 
 # Initial Setup:
 - Run `pip install -r requirements.txt`
-- Download the latest chromedriver for your OS from [Link](https://chromedriver.storage.googleapis.com/index.html)
-and place it in the root of the project.
+- Download the latest chromedriver for your OS from [Link](https://chromedriver.chromium.org/)
+and place it in the root of the project
 - Modify `login_ex.ini` with your credentials and remove `_ex` from the file name
 
 # Download all magazines
 - Simply open a CMD, Powershell or Terminal in the root folder of the project 
-and execute the script using `python main.py`, for example.
+and execute the script using `python main.py`
