@@ -20,15 +20,16 @@ def main():
     chrome_options.add_argument('--disable-gpu')
 
     # Create and set download directory
-    downloads = r"D:\Programming\Articles2Magazine\Downloads"
+    downloads = "Downloads"
     os.makedirs(downloads, exist_ok=True)
     chrome_options.add_experimental_option('prefs', {'download.default_directory': f'{downloads}'})
 
     # Start driver
-    driver = webdriver.Chrome(executable_path="chromedriver.exe", options=chrome_options)
+    driver = webdriver.Chrome(options=chrome_options)  # executable_path="chromedriver.exe",
 
     # Login to website
-    login = 'https://www.tourenfahrer.de/login/?tx_xtcconnect_login%5BredirectUrl%5D=https%3A%2F%2Fwww.tourenfahrer.de%2F'
+    login = 'https://www.tourenfahrer.de/login/?tx_xtcconnect_login%5BredirectUrl%5D=https%3A%2F%2F' \
+            'www.tourenfahrer.de%2F'
     driver.get(login)
     email_field = driver.find_element(By.ID, 'login-username')
     email_field.send_keys(email)
@@ -52,8 +53,9 @@ def main():
         issues = sorted(list(set(issues)))
         # For all parts from an issue
         for issue in issues:
-            print(f"Getting all parts from year {year} issue {issue} and downloading...")
-            url = f'https://www.tourenfahrer.de/motorradnews/archiv/motorradfahrer-archiv/archiv/ausgabe/{year}/{issue}/'
+            print(f"Downloading all parts from year {year} issue {issue}...")
+            url = f'https://www.tourenfahrer.de/motorradnews/archiv/motorradfahrer-archiv/archiv/ausgabe/' \
+                  f'{year}/{issue}/'
             driver.get(url)
             html = driver.page_source
             parts = re.findall(fr'/motorradnews/archiv/motorradfahrer-archiv/archiv/artikel/(\S+)\"', str(html))
