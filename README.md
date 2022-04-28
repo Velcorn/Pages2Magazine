@@ -6,7 +6,7 @@ otherwise, see [Link](https://pip.pypa.io/en/stable/installation/))
 # Initial Setup:
 - Run `pip install -r requirements.txt`
 - Download the latest chromedriver for your OS from [Link](https://chromedriver.chromium.org/)
-and place it in the root of the project
+and place it in the root of the project (for MacOS, just use `brew install chromedriver`)
 - Modify `login_ex.ini` with your credentials and remove `_ex` from the file name
 
 # Download all magazines
