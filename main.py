@@ -72,8 +72,15 @@ def main():
                 name = part.split('/')[2:-1][0]
                 url = f'https://www.tourenfahrer.de/motorradnews/archiv/motorradfahrer-archiv/archiv/download///{name}'
                 driver.get(url)
+            # Wait until all parts are downloaded
+            wait = True
+            while wait:
+                wait = False
+                for file in os.listdir(downloads):
+                    if file.endswith('.crdownload'):
+                        wait = True
+                sleep(1)
             # Move downloaded parts to issue folder
-            sleep(3)
             os.makedirs(f'Magazines/{year}/{issue}', exist_ok=True)
             for file in os.listdir('./Downloads'):
                 shutil.move(f'./Downloads/{file}', f'Magazines/{year}/{issue}/{file}')
